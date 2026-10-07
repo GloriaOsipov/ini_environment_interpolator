@@ -33,3 +33,10 @@ Forward references work because interpolation happens at `get`-time, after the w
 
 - `InterpolatingConfigParser` — subclass of `configparser.ConfigParser`. Constructor accepts an optional `env: Mapping[str, str]`; if omitted, a snapshot of `os.environ` is taken at construction time. `get()` returns interpolated strings unless called with `raw=True`.
 - `InterpolationError` — subclass of `ValueError`, raised on any unresolvable or cyclic reference.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
