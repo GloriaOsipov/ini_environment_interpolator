@@ -1,6 +1,6 @@
 [project]
 name = "ini-environment-interpolator"
-version = "0.1.2"
+version = "0.1.3"
 description = "Interpolates environment variables and references into INI file values during parsing."
 requires-python = ">=3.10"
 dependencies = []
